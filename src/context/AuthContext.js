@@ -50,6 +50,8 @@ export const AuthProvider = ({children}) => {
         logoutUser: logoutUser,
     }
 
+
+
     return(
         <AuthContext.Provider value={contextData}>
             {children}
