@@ -4,14 +4,14 @@ const DeckContext = createContext()
 
 export default DeckContext;
 
-export const DeckProvider = ({children}) => {
+export const CarouselProvider = ({children}) => {
     let [leDeck, setleDeck] = useState(null)
 
     let callDeck = async (e) => {
         console.log("tchek 1")
         e.preventDefault()
-        const response = await fetch('http://127.0.0.1:8000/battle/cartes/',{
-            method:'',
+        const response = await fetch('/battle/api/carousel-splash-url',{
+            method:'GET',
             headers: {
                 'Content-Type': 'application/json'
             },

@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import FicheContext from '../context/FicheContext';
 
 const FichePage = () => {
-    let {players} = useContext(FicheContext);
+    const { laFiche, callFiche } = useContext(FicheContext);
+
+    useEffect(() => {
+        callFiche(); // Appeler la fonction pour récupérer les données
+      }, [callFiche]);
+
 
     return (
         <div>
             <h1>Bienvenue sur votre fiche</h1>
-            {players && players.map((player) => (
+            {laFiche && Object.values(laFiche).map((player) => (
                 <div key={player.id}>
+                    {console.log(laFiche)}
                     <h2>{`${player.user.first_name} ${player.user.last_name}`}</h2>
                     <p>Username: {player.user.username}</p>
                     <p>Email: {player.user.email}</p>

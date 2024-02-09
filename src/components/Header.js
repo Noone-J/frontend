@@ -5,11 +5,13 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import AuthContext from '../context/AuthContext';
 
+import '../index.css'
 
 const Header = () => {
-  let { user, logoutUser } = useContext(AuthContext)
+  let { user, logoutUser } = useContext(AuthContext);
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -22,70 +24,87 @@ const Header = () => {
   window.addEventListener("scroll", scrollHandler);
 
   return (
-    <Navbar
-    expanded={expand}
-    fixed="top"
-    expand="md"
-    className={navColour ? "sticky" : "navbar"}
-    >
-      <Container>
-        <Navbar.Brand href="/">
-          Cards Games
-        </Navbar.Brand>
+    <div className="header-content">
+      <Navbar
+      expanded={expand}
+      fixed="top"
+      expand="md"
+      className={navColour ? "sticky" : "navbar"}
+      >
+        <Container>
+          <Navbar.Brand href="/">
+            Cards Games
+          </Navbar.Brand>
 
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto" defaultActiveKey="#home">
-            
-            <Nav.Item>
-              <Nav.Link
-                as={Link} 
-                to="/Fiche" 
-                onClick={() => updateExpanded(false)}
-                >
-                Fiche
-              </Nav.Link>
-            </Nav.Item>
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            onClick={() => {
+              updateExpanded(expand ? false : "expanded");
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto" defaultActiveKey="#home">
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link} 
-                to="/Deck" 
-                onClick={() => updateExpanded(false)}
-                >
-                Deck
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              {user ? (
-                  <Nav.Link  
-                  as={Link}
-                  onClick={logoutUser}
-                  >Logout</Nav.Link>
-              ) : (
-                <Nav.Link 
-                as={Link}
-                to="/login"
-                onClick={() => updateExpanded(false)} 
-                >
-                  Login
+              <Nav.Item>
+                <Nav.Link
+                  as={Link} 
+                  to="/Home" 
+                  onClick={() => updateExpanded(false)}
+                  >
+                  Home
                 </Nav.Link>
-              )}
-              {user && <p>Hello {user.username}!</p>}
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+              </Nav.Item>
+
+
+              {/* la page fiche apparrais que si on est log */}
+              <Nav.Item>
+
+                {user ? (
+                <Nav.Link
+                  as={Link} 
+                  to="/Fiche" 
+                  onClick={() => updateExpanded(false)}
+                  >
+                  Fiche
+                </Nav.Link>
+                ) : null}
+              </Nav.Item>
+
+              <Nav.Item>
+                <Nav.Link
+                  as={Link} 
+                  to="/Deck" 
+                  onClick={() => updateExpanded(false)}
+                  >
+                  Deck
+                </Nav.Link>
+              </Nav.Item>
+
+              <Nav.Item>
+                {user ? (
+                    <Nav.Link  
+                    as={Link}
+                    onClick={logoutUser}
+                    >Logout</Nav.Link>
+                ) : (
+                  <Nav.Link 
+                  as={Link}
+                  to="/login"
+                  onClick={() => updateExpanded(false)} 
+                  >
+                    Login
+                  </Nav.Link>
+                )}
+              </Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   )
 }
 

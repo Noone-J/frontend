@@ -7,10 +7,9 @@ export default FicheContext;
 export const FicheProvider = ({children}) => {
     let [laFiche, setlaFiche] = useState(null)
 
-    let callFiche = async (e) => {
+    let callFiche = async () => {
         console.log("tchek 1")
-        e.preventDefault()
-        const response = await fetch('http://127.0.0.1:8000/battle/joueurs/',{
+        const response = await fetch('/battle/joueurs/',{
             method:'GET',
             headers: {
                 'Content-Type': 'application/json'
