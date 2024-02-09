@@ -1,17 +1,17 @@
 import React, { useContext, useEffect } from 'react';
-
+import ScoreboardContext from '../../context/context2/ScoreboardContext';
 
 const FichePage = () => {
-    const { leCarousel, callCarousel } = useContext(CarouselContext);
+    const { leScoreboard, callScoreboard } = useContext(ScoreboardContext);
 
     useEffect(() => {
-        callCarousel(); // Appeler la fonction pour récupérer les données
-      }, [callCarousel]);
+        callScoreboard(); // Appeler la fonction pour récupérer les données
+      }, [callScoreboard]);
 
 
     return (
         <div>
-            {leCarousel.map((scoreboard) => (
+            {leScoreboard.map((scoreboard) => (
                 <div key={scoreboard.id}>
                     <h2>Partie ID: {scoreboard.id}</h2>
                     <p>Date de début: {new Date(scoreboard.date_debut).toLocaleString()}</p>
