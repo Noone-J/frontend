@@ -1,20 +1,20 @@
 import React, { useContext, useEffect } from 'react';
-import FicheContext from '../context/FicheContext';
+import CardContext from '../context/CardContext';
 
-const FichePage = () => {
-    const { laFiche, callFiche } = useContext(FicheContext);
+const CardPage = () => {
+    const { TheCard, callCard } = useContext(CardContext);
 
     useEffect(() => {
-        callFiche(); // Appeler la fonction pour récupérer les données
-      }, [callFiche]);
+        callCard(); // Appeler la fonction pour récupérer les données
+      }, [callCard]);
 
 
     return (
         <div>
-            <h1>Bienvenue sur votre fiche</h1>
-            {laFiche && Object.values(laFiche).map((player) => (
+            <h1>Bienvenue sur votre Card</h1>
+            {TheCard && Object.values(TheCard).map((player) => (
                 <div key={player.id}>
-                    {console.log(laFiche)}
+                    {console.log(TheCard)}
                     <h2>{`${player.user.first_name} ${player.user.last_name}`}</h2>
                     <p>Username: {player.user.username}</p>
                     <p>Email: {player.user.email}</p>
@@ -27,4 +27,4 @@ const FichePage = () => {
     );
 };
 
-export default FichePage;
+export default CardPage;

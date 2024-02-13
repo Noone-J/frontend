@@ -5,16 +5,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import { AuthProvider } from './context/AuthContext'
 import { DeckProvider } from './context/DeckContext'
-import { FicheProvider } from './context/FicheContext'
+import { CardProvider } from './context/CardContext'
 import { NavbarProvider } from './context/NavbarContext';
 import { CarouselProvider } from './context/CarouselContext';
-import { ScoreboardProvider } from './context/context2/ScoreboardContext';
+import { TablePartyProvider } from './context/context2/TablePartyContext';
+import { TableParty2Provider } from './context/context2/TableParty2Context';
 
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
-import FichePage from './pages/FichePage'
+import CardPage from './pages/CardPage'
 import DeckPage from './pages/DeckPage'
-import ScoreboardPage from './pages/Page2/ScoreboardPage'
+import TablePartyPage from './pages/Page2/TablePartyPage'
 import Header from './components/Header'
 import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
@@ -32,22 +33,24 @@ function App() {
                 <NavbarProvider>
                 <AuthProvider>
                 <DeckProvider>
-                <FicheProvider>
+                <CardProvider>
                 <CarouselProvider>
-                <ScoreboardProvider>
+                <TablePartyProvider>
+                <TableParty2Provider>
                     <Header/>
                     <ScrollToTop />
                     <Routes>
                         <Route path="/" element={<Layout><HomePage/></Layout>}/>
                         <Route path="home" element={<Layout><HomePage/></Layout>}/>
                         <Route path="login" element={<Layout><LoginPage/></Layout>}/>
-                        <Route path="fiche" element={<Layout><FichePage/></Layout>}/>
+                        <Route path="Card" element={<Layout><CardPage/></Layout>}/>
                         <Route path="Deck" element={<Layout><DeckPage/></Layout>}/>
-                        <Route path="Scoreboard" element={<Layout><ScoreboardPage/></Layout>}/>
+                        <Route path="/TableParty/:gameId" element={<Layout><TablePartyPage/></Layout>}/>
                     </Routes>
-                </ScoreboardProvider>
+                </TableParty2Provider>
+                </TablePartyProvider>
                 </CarouselProvider>
-                </FicheProvider>
+                </CardProvider>
                 </DeckProvider>
                 </AuthProvider>
                 </NavbarProvider>

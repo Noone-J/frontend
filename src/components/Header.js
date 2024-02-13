@@ -66,10 +66,10 @@ const Header = () => {
                 {user ? (
                 <Nav.Link
                   as={Link} 
-                  to="/Fiche" 
+                  to="/Card" 
                   onClick={() => updateExpanded(false)}
                   >
-                  Fiche
+                  Card
                 </Nav.Link>
                 ) : null}
               </Nav.Item>
