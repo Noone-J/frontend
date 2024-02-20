@@ -16,9 +16,13 @@ import LoginPage from './pages/LoginPage'
 import CardPage from './pages/CardPage'
 import DeckPage from './pages/DeckPage'
 import TablePartyPage from './pages/Page2/TablePartyPage'
+import TicTacToePage from './pages/PageGame/TicTacToePage'
+// import Bataille from './pages/PageGame/Bataille';
+
 import Header from './components/Header'
 import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
+
 
 
 // import PrivateRoute from './utils/PrivateRoute'
@@ -46,7 +50,9 @@ function App() {
                         <Route path="Card" element={<Layout><CardPage/></Layout>}/>
                         <Route path="Deck" element={<Layout><DeckPage/></Layout>}/>
                         <Route path="/TableParty/:gameId" element={<Layout><TablePartyPage/></Layout>}/>
-                    </Routes>
+                        <Route path="/TicTacToe" element={<Layout><TicTacToePage /></Layout>} />
+                        {/* <Route path="/bataille/:gameId" element={<Bataille />} /> */}
+                   </Routes>
                 </TableParty2Provider>
                 </TablePartyProvider>
                 </CarouselProvider>

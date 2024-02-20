@@ -100,6 +100,15 @@ const Header = () => {
                   </Nav.Link>
                 )}
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                as={Link}
+                to="/TicTacToe"
+                onClick={() => updateExpanded(false)}
+                >
+                  TicTacToe
+                </Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>

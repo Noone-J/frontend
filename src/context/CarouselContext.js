@@ -25,7 +25,7 @@ export const CarouselProvider = ({children}) => {
             console.log(data)
         } else {
             console.log("tchek 3")
-            alert("une erreur c'est produit lors de la connection àl'api")
+            alert("une erreur c'est produit lors de la connection à l'api")
         }
     }, []);   
     let contextData = {

@@ -17,7 +17,7 @@ export const TablePartyProvider = ({children}) => {
     
         });
         let data = await response.json();
-
+        
         if(data){
             console.log("tchek TableParty 2")
             localStorage.setItem('TheTableParty', JSON.stringify(data));
